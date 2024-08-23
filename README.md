@@ -1,7 +1,7 @@
 # Official implementation of Diffusion Autoencoders
+This repository contains the official implementation of Diffusion Autoencoders V2, a continuation and improvement of the original Diffusion Autoencoders paper presented at CVPR 2022 (ORAL) ([paper](https://openaccess.thecvf.com/content/CVPR2022/html/Preechakul_Diffusion_Autoencoders_Toward_a_Meaningful_and_Decodable_Representation_CVPR_2022_paper.html), [site](https://diff-ae.github.io/), [5-min video](https://youtu.be/i3rjEsiHoUU)):
 
-A CVPR 2022 (ORAL) paper ([paper](https://openaccess.thecvf.com/content/CVPR2022/html/Preechakul_Diffusion_Autoencoders_Toward_a_Meaningful_and_Decodable_Representation_CVPR_2022_paper.html), [site](https://diff-ae.github.io/), [5-min video](https://youtu.be/i3rjEsiHoUU)):
-
+You can cite the original work as follows:
 ```
 @inproceedings{preechakul2021diffusion,
       title={Diffusion Autoencoders: Toward a Meaningful and Decodable Representation}, 
@@ -31,30 +31,30 @@ pip install -r requirements.txt
 
 A jupyter notebook.
 
-For unconditional generation: `sample.ipynb`
+For unconditional generation: `src/notebooks/sample.ipynb`
 
-For manipulation: `manipulate.ipynb`
+For manipulation: `src/notebooks/manipulate.ipynb`
 
-For interpolation: `interpolate.ipynb`
+For interpolation: `src/notebooks/interpolate.ipynb`
 
-For autoencoding: `autoencoding.ipynb`
+For autoencoding: `src/notebooks/autoencoding.ipynb`
 
 Aligning your own images:
 
-1. Put images into the `imgs` directory
-2. Run `align.py` (need to `pip install dlib requests`)
-3. Result images will be available in `imgs_align` directory
+1. Put images into the `examples/imgs` directory
+2. Run `scripts/run_align.py` (need to `pip install dlib requests`)
+3. Result images will be available in `examples/imgs_align` directory
 
 <table>
 <tr>
 <th width="33%">
-Original in <code>imgs</code> directory<br><img src="imgs/sandy.JPG" style="width: 100%">
+Original in <code>imgs</code> directory<br><img src="examples/imgs/sandy.JPG" style="width: 100%">
 </th>
 <th width="33%">
-Aligned with <code>align.py</code><br><img src="imgs_align/sandy.png" style="width: 100%">
+Aligned with <code>align.py</code><br><img src="examples/imgs_align/sandy.png" style="width: 100%">
 </th>
 <th width="33%">
-Using <code>manipulate.ipynb</code><br><img src="imgs_manipulated/sandy-wavyhair.png" style="width: 100%">
+Using <code>manipulate.ipynb</code><br><img src="examples/imgs_manipulated/sandy-wavyhair.png" style="width: 100%">
 </th>
 </tr>
 </table>
@@ -121,11 +121,11 @@ Original sources for each dataset is as follows:
 The conversion codes are provided as:
 
 ```
-data_resize_bedroom.py
-data_resize_celebhq.py
-data_resize_celeba.py
-data_resize_ffhq.py
-data_resize_horse.py
+src/data/scripts/run_data_resize_bedroom.py
+src/data/scripts/run_data_resize_celebhq.py
+src/data/scripts/run_data_resize_celeba.py
+src/data/scripts/run_data_resize_ffhq.py
+src/data/scripts/run_data_resize_horse.py
 ```
 
 Google drive: https://drive.google.com/drive/folders/1abNP4QKGbNnymjn8607BF0cwxX2L23jh?usp=sharing
@@ -143,14 +143,14 @@ Note: Most experiment requires at least 4x V100s during training the DPM models 
 **FFHQ128**
 ```
 # diffae
-python run_ffhq128.py
+python scripts/run_ffhq128.py
 # ddim
-python run_ffhq128_ddim.py
+python scripts/run_ffhq128_ddim.py
 ```
 
 A classifier (for manipulation) can be trained using:
 ```
-python run_ffhq128_cls.py
+python scripts/run_ffhq128_cls.py
 ```
 
 **FFHQ256**
@@ -158,35 +158,35 @@ python run_ffhq128_cls.py
 We only trained the DiffAE due to high computation cost.
 This requires 8x V100s.
 ```
-sbatch run_ffhq256.py
+sbatch scripts/run_ffhq256.py
 ```
 
 After the task is done, you need to train the latent DPM (requiring only 1x 2080Ti)
 ```
-python run_ffhq256_latent.py
+python scripts/run_ffhq256_latent.py
 ```
 
 A classifier (for manipulation) can be trained using:
 ```
-python run_ffhq256_cls.py
+python scripts/run_ffhq256_cls.py
 ```
 
 **Bedroom128**
 
 ```
 # diffae
-python run_bedroom128.py
+python scripts/run_bedroom128.py
 # ddim
-python run_bedroom128_ddim.py
+python scripts/run_bedroom128_ddim.py
 ```
 
 **Horse128**
 
 ```
 # diffae
-python run_horse128.py
+python scripts/run_horse128.py
 # ddim
-python run_horse128_ddim.py
+python scripts/run_horse128_ddim.py
 ```
 
 **Celeba64**
@@ -195,5 +195,5 @@ This experiment can be run on 2080Ti's.
 
 ```
 # diffae
-python run_celeba64.py
+python scripts/run_celeba64.py
 ```

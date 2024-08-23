@@ -1,4 +1,4 @@
-# Official implementation of Diffusion Autoencoders
+# Diffusion Autoencoders V2: Improved Feature Disentanglement
 This repository contains the official implementation of Diffusion Autoencoders V2, a continuation and improvement of the original Diffusion Autoencoders paper presented at CVPR 2022 (ORAL) ([paper](https://openaccess.thecvf.com/content/CVPR2022/html/Preechakul_Diffusion_Autoencoders_Toward_a_Meaningful_and_Decodable_Representation_CVPR_2022_paper.html), [site](https://diff-ae.github.io/), [5-min video](https://youtu.be/i3rjEsiHoUU)):
 
 You can cite the original work as follows:
